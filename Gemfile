@@ -51,5 +51,7 @@ group :test do
   gem 'minitest'
   #required for javascript test in selenium
   gem 'poltergeist'
+
+  gem 'simplecov', :require => false, :group => :test
 end
 

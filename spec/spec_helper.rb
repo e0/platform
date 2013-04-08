@@ -1,4 +1,7 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'simplecov'
+SimpleCov.start
+
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
@@ -58,7 +61,7 @@ RSpec.configure do |config|
   config.before(:suite) do
 	Capybara.javascript_driver = :poltergeist
   end
-  config.after(:each) do 
+  config.after(:each) do
 	Capybara.reset_sessions!
 	Capybara.use_default_driver
   end
