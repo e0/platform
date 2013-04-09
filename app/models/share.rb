@@ -279,6 +279,12 @@ class Share < ActiveRecord::Base
 	end
 
 	def after_save_hook
+		if everyone
+			users = User.all
+			self.users_with_share_access = users
+			self.users_with_write_access = users
+		end
+
 		if guest_writeable_changed?
 			guest_writeable ? make_guest_writeable : make_guest_non_writeable
 		end
